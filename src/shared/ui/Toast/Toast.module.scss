@@ -1,0 +1,60 @@
+.host {
+  position: fixed;
+  inset-block-end: var(--noto-space-4);
+  inset-inline-end: var(--noto-space-4);
+  z-index: var(--noto-z-toast);
+  display: flex;
+  flex-direction: column;
+  gap: var(--noto-space-2);
+  width: min(100% - var(--noto-space-8), 22rem);
+  pointer-events: none;
+}
+
+.toast {
+  pointer-events: auto;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--noto-space-2) var(--noto-space-3);
+  padding: var(--noto-space-3) var(--noto-space-4);
+  border: 1px solid var(--noto-color-border);
+  border-radius: var(--noto-radius-lg);
+  background: var(--noto-color-bg-elevated);
+  box-shadow: var(--noto-shadow-md);
+  color: var(--noto-color-ink);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--noto-font-size-sm);
+  font-weight: var(--noto-font-weight-semibold);
+}
+
+.description {
+  margin: var(--noto-space-1) 0 0;
+  font-size: var(--noto-font-size-xs);
+  color: var(--noto-color-ink-muted);
+}
+
+.dismiss {
+  align-self: start;
+}
+
+.default {
+  border-inline-start: 3px solid var(--noto-color-border-strong);
+}
+
+.success {
+  border-inline-start: 3px solid var(--noto-color-success);
+}
+
+.warning {
+  border-inline-start: 3px solid var(--noto-color-warning);
+}
+
+.danger {
+  border-inline-start: 3px solid var(--noto-color-danger);
+}
+
+.info {
+  border-inline-start: 3px solid var(--noto-color-info);
+}

@@ -1,0 +1,166 @@
+{
+  "app": {
+    "name": "Noto",
+    "tagline": "Local-first notes workspace"
+  },
+  "common": {
+    "close": "Close",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "save": "Save",
+    "delete": "Delete",
+    "back": "Back",
+    "loading": "Loading…",
+    "error": "Something went wrong",
+    "retry": "Retry"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "switch": "Switch theme"
+  },
+  "locale": {
+    "en": "English",
+    "ru": "Русский",
+    "switch": "Switch language"
+  },
+  "onboarding": {
+    "title": "Welcome to Noto",
+    "subtitle": "Set up your workspace to get started",
+    "workspaceName": "Workspace name",
+    "workspaceNamePlaceholder": "My Workspace",
+    "language": "Language",
+    "useDemo": "Load demo content with sample pages",
+    "getStarted": "Get started",
+    "nameRequired": "Workspace name is required",
+    "nameTooLong": "Name must be 100 characters or fewer"
+  },
+  "sidebar": {
+    "newPage": "New page",
+    "pages": "Pages",
+    "favorites": "Favorites",
+    "recent": "Recent",
+    "trash": "Trash",
+    "settings": "Settings",
+    "collapse": "Collapse sidebar",
+    "expand": "Expand sidebar",
+    "openMenu": "Open menu"
+  },
+  "page": {
+    "untitled": "Untitled",
+    "created": "Page created",
+    "createError": "Could not create page",
+    "deleted": "Page moved to trash",
+    "duplicated": "Page duplicated",
+    "duplicate": "Duplicate",
+    "delete": "Delete",
+    "copy": "copy",
+    "toggleFavorite": "Toggle favorite",
+    "expand": "Expand",
+    "collapse": "Collapse",
+    "moreActions": "More actions",
+    "emptyTitle": "Select or create a page",
+    "emptyDescription": "Choose a page from the sidebar or create a new one to start writing"
+  },
+  "editor": {
+    "placeholder": "Start writing, or type / for commands…",
+    "toolbar": "Editor toolbar",
+    "bold": "Bold",
+    "italic": "Italic",
+    "underline": "Underline",
+    "strikethrough": "Strikethrough",
+    "bulletList": "Bullet list",
+    "orderedList": "Numbered list",
+    "taskList": "Task list",
+    "quote": "Quote",
+    "link": "Link",
+    "linkPrompt": "Enter URL",
+    "status": {
+      "saving": "Saving…",
+      "saved": "Saved",
+      "error": "Save failed"
+    },
+    "slash": {
+      "heading1": "Heading 1",
+      "heading1Desc": "Large section heading",
+      "heading2": "Heading 2",
+      "heading2Desc": "Medium section heading",
+      "heading3": "Heading 3",
+      "heading3Desc": "Small section heading",
+      "bulletList": "Bullet list",
+      "bulletListDesc": "Unordered list",
+      "orderedList": "Numbered list",
+      "orderedListDesc": "Ordered list",
+      "taskList": "Checklist",
+      "taskListDesc": "Task list with checkboxes",
+      "quote": "Quote",
+      "quoteDesc": "Block quote",
+      "code": "Code block",
+      "codeDesc": "Fenced code block",
+      "hr": "Divider",
+      "hrDesc": "Horizontal rule"
+    }
+  },
+  "search": {
+    "title": "Search pages",
+    "placeholder": "Search titles and content…",
+    "hint": "Type to search across all pages",
+    "searching": "Searching…",
+    "noResults": "No results",
+    "noResultsHint": "Try a different search term",
+    "open": "Open search"
+  },
+  "header": {
+    "favorite": "Add to favorites",
+    "unfavorite": "Remove from favorites",
+    "exportMd": "Export Markdown",
+    "duplicate": "Duplicate page",
+    "delete": "Delete page",
+    "more": "More actions"
+  },
+  "trash": {
+    "title": "Trash",
+    "empty": "Trash is empty",
+    "emptyDescription": "Deleted pages will appear here",
+    "restore": "Restore",
+    "purge": "Delete permanently",
+    "restored": "Page restored",
+    "purged": "Page permanently deleted",
+    "deletedAt": "Deleted {date}",
+    "confirmPurge": "Delete permanently?",
+    "confirmPurgeDesc": "This action cannot be undone"
+  },
+  "settings": {
+    "title": "Settings",
+    "appearance": "Appearance",
+    "language": "Language",
+    "data": "Data",
+    "exportJson": "Export workspace JSON",
+    "importJson": "Import workspace JSON",
+    "resetDemo": "Reset demo data",
+    "resetDemoDesc": "Replace current workspace with fresh demo content",
+    "resetConfirm": "Reset demo data?",
+    "resetConfirmDesc": "This will delete your current workspace and create a new demo",
+    "exportSuccess": "Workspace exported",
+    "importSuccess": "Workspace imported",
+    "importError": "Import failed",
+    "resetSuccess": "Demo data reset"
+  },
+  "snapshots": {
+    "title": "Version history",
+    "restore": "Restore version",
+    "restored": "Version restored",
+    "empty": "No snapshots yet"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you are looking for does not exist",
+    "goHome": "Go to workspace"
+  },
+  "errorBoundary": {
+    "title": "Something went wrong",
+    "description": "An unexpected error occurred. Try reloading the page",
+    "reload": "Reload"
+  }
+}

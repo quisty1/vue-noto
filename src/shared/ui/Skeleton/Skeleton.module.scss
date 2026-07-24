@@ -1,0 +1,41 @@
+.root {
+  display: block;
+  border-radius: var(--noto-radius-md);
+  background: linear-gradient(
+    90deg,
+    var(--noto-color-bg-muted) 0%,
+    var(--noto-color-bg-subtle) 50%,
+    var(--noto-color-bg-muted) 100%
+  );
+  background-size: 200% 100%;
+  animation: noto-skeleton-pulse 1.4s ease-in-out infinite;
+}
+
+.text {
+  height: 0.875em;
+  border-radius: var(--noto-radius-sm);
+}
+
+.circle {
+  border-radius: var(--noto-radius-full);
+}
+
+.rect {
+  border-radius: var(--noto-radius-md);
+}
+
+@keyframes noto-skeleton-pulse {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .root {
+    animation: none;
+    background: var(--noto-color-bg-muted);
+  }
+}

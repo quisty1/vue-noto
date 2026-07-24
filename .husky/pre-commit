@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+# Lint and format only staged files before commit
+npx lint-staged

@@ -1,0 +1,33 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noto-space-5);
+  max-width: 24rem;
+  width: 100%;
+}
+
+.title {
+  font-size: var(--noto-font-size-2xl);
+  font-weight: var(--noto-font-weight-bold);
+  letter-spacing: var(--noto-letter-spacing-tight);
+}
+
+.subtitle {
+  color: var(--noto-color-ink-muted);
+  margin-top: calc(-1 * var(--noto-space-3));
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: var(--noto-space-2);
+  font-size: var(--noto-font-size-sm);
+  color: var(--noto-color-ink-muted);
+  cursor: pointer;
+
+  input {
+    width: 1rem;
+    height: 1rem;
+    accent-color: var(--noto-color-accent);
+  }
+}

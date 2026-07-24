@@ -1,0 +1,116 @@
+.root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--noto-space-4) var(--noto-space-6);
+
+  :global(.ProseMirror) {
+    outline: none;
+    min-height: 12rem;
+    font-family: var(--noto-font-serif);
+    font-size: var(--noto-font-size-md);
+    line-height: var(--noto-line-height-relaxed);
+    color: var(--noto-color-ink);
+
+    p {
+      margin-block: 0.5em;
+    }
+
+    h1 {
+      font-size: var(--noto-font-size-3xl);
+      font-weight: var(--noto-font-weight-bold);
+      margin-block: 1em 0.5em;
+      line-height: var(--noto-line-height-tight);
+    }
+
+    h2 {
+      font-size: var(--noto-font-size-2xl);
+      font-weight: var(--noto-font-weight-semibold);
+      margin-block: 0.75em 0.375em;
+    }
+
+    h3 {
+      font-size: var(--noto-font-size-xl);
+      font-weight: var(--noto-font-weight-semibold);
+      margin-block: 0.5em 0.25em;
+    }
+
+    ul,
+    ol {
+      padding-inline-start: 1.5em;
+      margin-block: 0.5em;
+    }
+
+    blockquote {
+      border-inline-start: 3px solid var(--noto-color-accent);
+      padding-inline-start: var(--noto-space-4);
+      margin-block: 0.75em;
+      color: var(--noto-color-ink-muted);
+    }
+
+    pre {
+      background: var(--noto-color-bg-muted);
+      border-radius: var(--noto-radius-md);
+      padding: var(--noto-space-3) var(--noto-space-4);
+      font-family: var(--noto-font-mono);
+      font-size: var(--noto-font-size-sm);
+      overflow-x: auto;
+      margin-block: 0.75em;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--noto-color-border);
+      margin-block: 1.5em;
+    }
+
+    a {
+      color: var(--noto-color-accent);
+      text-decoration: underline;
+    }
+
+    ul[data-type='taskList'] {
+      list-style: none;
+      padding-inline-start: 0;
+
+      li {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--noto-space-2);
+
+        label {
+          flex-shrink: 0;
+          margin-top: 0.25em;
+        }
+
+        > div {
+          flex: 1;
+        }
+      }
+    }
+
+    p.is-editor-empty:first-child::before {
+      content: attr(data-placeholder);
+      float: left;
+      color: var(--noto-color-ink-subtle);
+      pointer-events: none;
+      height: 0;
+    }
+  }
+}
+
+.bubble {
+  display: flex;
+  gap: var(--noto-space-1);
+  padding: var(--noto-space-1);
+  background: var(--noto-color-bg-elevated);
+  border: 1px solid var(--noto-color-border);
+  border-radius: var(--noto-radius-md);
+  box-shadow: var(--noto-shadow-sm);
+}

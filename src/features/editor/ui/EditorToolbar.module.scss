@@ -1,0 +1,16 @@
+.root {
+  display: flex;
+  align-items: center;
+  gap: var(--noto-space-1);
+  padding: var(--noto-space-2);
+  border-bottom: 1px solid var(--noto-color-border);
+  background: var(--noto-color-bg-elevated);
+  flex-wrap: wrap;
+}
+
+.divider {
+  width: 1px;
+  height: 1.25rem;
+  background: var(--noto-color-border);
+  margin-inline: var(--noto-space-1);
+}

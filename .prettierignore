@@ -1,0 +1,10 @@
+dist
+coverage
+storybook-static
+playwright-report
+test-results
+node_modules
+package-lock.json
+*.min.js
+*.min.css
+public

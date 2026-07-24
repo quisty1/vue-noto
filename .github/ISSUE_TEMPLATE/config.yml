@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation
+    url: https://github.com/OWNER/noto#readme
+    about: Check README, ARCHITECTURE.md and CONTRIBUTING.md before opening an issue

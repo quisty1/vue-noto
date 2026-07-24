@@ -1,0 +1,23 @@
+.layout {
+  display: flex;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+}
+
+.menuBtn {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .menuBtn {
+    display: inline-flex;
+  }
+}

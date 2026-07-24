@@ -1,0 +1,58 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid transparent;
+  border-radius: var(--noto-radius-md);
+  background: transparent;
+  color: var(--noto-color-ink-muted);
+  transition:
+    background-color var(--noto-duration-fast) var(--noto-easing-standard),
+    color var(--noto-duration-fast) var(--noto-easing-standard),
+    box-shadow var(--noto-duration-fast) var(--noto-easing-standard);
+}
+
+.root:hover:not(:disabled) {
+  background: var(--noto-color-bg-muted);
+  color: var(--noto-color-ink);
+}
+
+.root:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.root:focus-visible {
+  box-shadow: var(--noto-focus-ring);
+}
+
+.sm {
+  width: var(--noto-control-height-sm);
+  height: var(--noto-control-height-sm);
+}
+
+.md {
+  width: var(--noto-control-height-md);
+  height: var(--noto-control-height-md);
+}
+
+.lg {
+  width: var(--noto-control-height-lg);
+  height: var(--noto-control-height-lg);
+}
+
+.icon {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.sm .icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.lg .icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}

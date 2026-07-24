@@ -1,0 +1,34 @@
+name: Feature request
+description: Suggest an idea or enhancement for Noto
+title: 'feat: '
+labels: ['enhancement']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Share a concrete idea that fits Noto's local-first notes workspace.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What problem does this solve?
+      placeholder: As a user, I want...
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: How should it work?
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Other approaches you thought about
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Mockups, related issues, accessibility notes

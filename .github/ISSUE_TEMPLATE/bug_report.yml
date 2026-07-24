@@ -1,0 +1,69 @@
+name: Bug report
+description: Report a bug or unexpected behavior in Noto
+title: 'fix: '
+labels: ['bug']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug. Please fill in the sections below.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: Clear and concise description of the bug
+      placeholder: What went wrong?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Minimal steps that reliably reproduce the issue
+      placeholder: |
+        1. Go to...
+        2. Click...
+        3. See error
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What you expected to happen
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: What actually happened
+    validations:
+      required: true
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: Environment
+      description: Where did you observe the issue?
+      multiple: true
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Edge
+        - Mobile Safari
+        - Mobile Chrome
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: App / commit
+      description: Version, tag, or commit SHA if known
+      placeholder: main / 1.0.0 / abc1234
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Screenshots, console logs, IndexedDB notes, or related issues

@@ -1,0 +1,5 @@
+{
+  // Solution-style root: app sources vs Node tooling configs
+  "files": [],
+  "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }]
+}

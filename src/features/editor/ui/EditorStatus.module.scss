@@ -1,0 +1,16 @@
+.root {
+  font-size: var(--noto-font-size-xs);
+  color: var(--noto-color-ink-subtle);
+}
+
+.saving {
+  color: var(--noto-color-ink-muted);
+}
+
+.saved {
+  color: var(--noto-color-success);
+}
+
+.error {
+  color: var(--noto-color-danger);
+}

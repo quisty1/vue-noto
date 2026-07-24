@@ -1,0 +1,4 @@
+{
+  // Recommended extensions for Vue SFCs (Volar)
+  "recommendations": ["Vue.volar"]
+}

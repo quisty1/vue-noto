@@ -1,0 +1,6 @@
+export { extractPlainText } from './lib/extractPlainText'
+export { useAutosave } from './model/useAutosave'
+export type { AutosaveStatus } from './model/useAutosave'
+export { default as NotoEditor } from './ui/NotoEditor.vue'
+export { default as EditorToolbar } from './ui/EditorToolbar.vue'
+export { default as EditorStatus } from './ui/EditorStatus.vue'
