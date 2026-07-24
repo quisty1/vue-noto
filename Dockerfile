@@ -19,7 +19,7 @@ ENV VITE_BASE_URL=$VITE_BASE_URL \
 
 RUN npm run build
 
-FROM nginx:1.27-alpine AS runtime
+FROM nginx:1.31-alpine AS runtime
 
 # Non-root nginx needs writable pid/log paths and wget for HEALTHCHECK
 RUN apk add --no-cache wget \
