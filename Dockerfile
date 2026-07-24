@@ -2,7 +2,7 @@
 
 # Multi-stage: Node build → nginx static runtime on port 8080
 
-FROM node:22-alpine AS build
+FROM node:26-alpine AS build
 
 WORKDIR /app
 
