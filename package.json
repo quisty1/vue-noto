@@ -28,7 +28,7 @@
     "@lucide/vue": "^1.26.0",
     "@tanstack/vue-query": "^5.83.0",
     "@tiptap/core": "^2.22.3",
-    "@tiptap/extension-bubble-menu": "^2.22.3",
+    "@tiptap/extension-bubble-menu": "^3.29.0",
     "@tiptap/extension-link": "^2.22.3",
     "@tiptap/extension-placeholder": "^2.22.3",
     "@tiptap/extension-task-item": "^2.22.3",
