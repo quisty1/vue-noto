@@ -1,0 +1,90 @@
+/* Shared overlay / panel transition classes for Vue <Transition> */
+
+.noto-fade-enter-active,
+.noto-fade-leave-active {
+  transition: opacity var(--noto-duration-normal) var(--noto-easing-standard);
+}
+
+.noto-fade-enter-from,
+.noto-fade-leave-to {
+  opacity: 0;
+}
+
+.noto-overlay-enter-active,
+.noto-overlay-leave-active {
+  transition: opacity var(--noto-duration-normal) var(--noto-easing-standard);
+}
+
+.noto-overlay-enter-active .noto-overlay-panel {
+  transition:
+    opacity var(--noto-duration-normal) var(--noto-easing-emphasized),
+    transform var(--noto-duration-normal) var(--noto-easing-emphasized);
+}
+
+.noto-overlay-leave-active .noto-overlay-panel {
+  transition:
+    opacity var(--noto-duration-fast) var(--noto-easing-exit),
+    transform var(--noto-duration-fast) var(--noto-easing-exit);
+}
+
+.noto-overlay-enter-from,
+.noto-overlay-leave-to {
+  opacity: 0;
+}
+
+.noto-overlay-enter-from .noto-overlay-panel,
+.noto-overlay-leave-to .noto-overlay-panel {
+  opacity: 0;
+  transform: translateY(6px) scale(0.98);
+}
+
+.noto-dropdown-enter-active {
+  transition:
+    opacity var(--noto-duration-fast) var(--noto-easing-emphasized),
+    transform var(--noto-duration-fast) var(--noto-easing-emphasized);
+}
+
+.noto-dropdown-leave-active {
+  transition:
+    opacity var(--noto-duration-fast) var(--noto-easing-exit),
+    transform var(--noto-duration-fast) var(--noto-easing-exit);
+}
+
+.noto-dropdown-enter-from,
+.noto-dropdown-leave-to {
+  opacity: 0;
+  transform: translateY(-4px);
+}
+
+.noto-toast-enter-active {
+  transition:
+    opacity var(--noto-duration-normal) var(--noto-easing-emphasized),
+    transform var(--noto-duration-normal) var(--noto-easing-emphasized);
+}
+
+.noto-toast-leave-active {
+  transition:
+    opacity var(--noto-duration-fast) var(--noto-easing-exit),
+    transform var(--noto-duration-fast) var(--noto-easing-exit);
+}
+
+.noto-toast-move {
+  transition: transform var(--noto-duration-normal) var(--noto-easing-standard);
+}
+
+.noto-toast-enter-from,
+.noto-toast-leave-to {
+  opacity: 0;
+  transform: translateX(0.75rem);
+}
+
+.noto-rise-enter-active {
+  transition:
+    opacity var(--noto-duration-slow) var(--noto-easing-emphasized),
+    transform var(--noto-duration-slow) var(--noto-easing-emphasized);
+}
+
+.noto-rise-enter-from {
+  opacity: 0;
+  transform: translateY(12px);
+}

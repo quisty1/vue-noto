@@ -125,46 +125,48 @@ onBeforeUnmount(() => {
 
 <template>
   <Teleport to="body">
-    <div v-if="open" :class="styles.overlay" @mousedown="onOverlayClick">
-      <div
-        ref="dialogRef"
-        :class="[styles.dialog, wide ? styles.dialogWide : null]"
-        role="dialog"
-        aria-modal="true"
-        :aria-labelledby="title ? titleId : undefined"
-        :aria-describedby="description ? descriptionId : undefined"
-        :aria-label="!title ? ariaLabel : undefined"
-        tabindex="-1"
-      >
-        <div v-if="title || showClose || $slots.header" :class="styles.header">
-          <slot name="header">
-            <h2 v-if="title" :id="titleId" :class="styles.title">
-              {{ title }}
-            </h2>
-          </slot>
-          <IconButton
-            v-if="showClose"
-            :class="styles.close"
-            aria-label="Close dialog"
-            size="sm"
-            @click="close"
-          >
-            <X :size="16" />
-          </IconButton>
-        </div>
+    <Transition name="noto-overlay">
+      <div v-if="open" :class="styles.overlay" @mousedown="onOverlayClick">
+        <div
+          ref="dialogRef"
+          :class="[styles.dialog, 'noto-overlay-panel', wide ? styles.dialogWide : null]"
+          role="dialog"
+          aria-modal="true"
+          :aria-labelledby="title ? titleId : undefined"
+          :aria-describedby="description ? descriptionId : undefined"
+          :aria-label="!title ? ariaLabel : undefined"
+          tabindex="-1"
+        >
+          <div v-if="title || showClose || $slots.header" :class="styles.header">
+            <slot name="header">
+              <h2 v-if="title" :id="titleId" :class="styles.title">
+                {{ title }}
+              </h2>
+            </slot>
+            <IconButton
+              v-if="showClose"
+              :class="styles.close"
+              aria-label="Close dialog"
+              size="sm"
+              @click="close"
+            >
+              <X :size="16" />
+            </IconButton>
+          </div>
 
-        <p v-if="description" :id="descriptionId" :class="styles.description">
-          {{ description }}
-        </p>
+          <p v-if="description" :id="descriptionId" :class="styles.description">
+            {{ description }}
+          </p>
 
-        <div :class="styles.body">
-          <slot />
-        </div>
+          <div :class="styles.body">
+            <slot />
+          </div>
 
-        <div v-if="$slots.footer" :class="styles.footer">
-          <slot name="footer" />
+          <div v-if="$slots.footer" :class="styles.footer">
+            <slot name="footer" />
+          </div>
         </div>
       </div>
-    </div>
+    </Transition>
   </Teleport>
 </template>

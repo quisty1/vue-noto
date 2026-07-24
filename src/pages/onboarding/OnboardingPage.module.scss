@@ -3,5 +3,12 @@
   align-items: center;
   justify-content: center;
   min-height: 100dvh;
-  padding: var(--noto-space-8);
+  padding: var(--noto-space-8) var(--noto-space-4);
+  background-image:
+    radial-gradient(ellipse 90% 60% at 20% 0%, var(--noto-color-wash), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 90% 100%, var(--noto-color-wash-secondary), transparent 50%);
+}
+
+.shell {
+  width: min(100%, 26rem);
 }

@@ -10,9 +10,10 @@
   border-radius: var(--noto-radius-md);
   cursor: pointer;
   min-height: var(--noto-control-height-sm);
+  transition: background-color var(--noto-duration-fast) var(--noto-easing-standard);
 
   &:hover {
-    background: var(--noto-color-bg-muted);
+    background: var(--noto-color-accent-muted);
   }
 }
 
@@ -20,6 +21,13 @@
   background: var(--noto-color-accent-muted);
   color: var(--noto-color-accent);
   font-weight: var(--noto-font-weight-medium);
+  box-shadow: inset var(--noto-brand-bar-width) 0 0 0 var(--noto-color-accent);
+}
+
+.rowCollapsed {
+  justify-content: center;
+  padding-inline: var(--noto-space-1);
+  gap: 0;
 }
 
 .collapseBtn {
@@ -34,6 +42,7 @@
   color: var(--noto-color-ink-subtle);
   border-radius: var(--noto-radius-sm);
   flex-shrink: 0;
+  transition: background-color var(--noto-duration-fast) var(--noto-easing-standard);
 
   &:hover {
     background: var(--noto-color-bg-subtle);
@@ -48,6 +57,18 @@
 .icon {
   flex-shrink: 0;
   font-size: var(--noto-font-size-sm);
+}
+
+.iconFallback {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  font-size: var(--noto-font-size-xs);
+  font-weight: var(--noto-font-weight-semibold);
+  color: var(--noto-color-ink-muted);
 }
 
 .title {
@@ -67,6 +88,7 @@
 .menuBtn {
   opacity: 0;
   flex-shrink: 0;
+  transition: opacity var(--noto-duration-fast) var(--noto-easing-standard);
 
   .row:hover &,
   .row:focus-within & {

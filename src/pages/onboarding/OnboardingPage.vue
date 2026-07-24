@@ -16,6 +16,10 @@ function onComplete(workspaceId: string): void {
 
 <template>
   <div :class="styles.page">
-    <OnboardingForm @complete="onComplete" />
+    <Transition name="noto-rise" appear>
+      <div :class="styles.shell">
+        <OnboardingForm @complete="onComplete" />
+      </div>
+    </Transition>
   </div>
 </template>

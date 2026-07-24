@@ -16,7 +16,8 @@
     border-color var(--noto-duration-fast) var(--noto-easing-standard),
     color var(--noto-duration-fast) var(--noto-easing-standard),
     box-shadow var(--noto-duration-fast) var(--noto-easing-standard),
-    opacity var(--noto-duration-fast) var(--noto-easing-standard);
+    opacity var(--noto-duration-fast) var(--noto-easing-standard),
+    transform var(--noto-duration-fast) var(--noto-easing-standard);
 }
 
 .root:disabled,
@@ -28,6 +29,10 @@
 
 .root:focus-visible {
   box-shadow: var(--noto-focus-ring);
+}
+
+.root:active:not(:disabled):not([aria-disabled='true']) {
+  transform: translateY(0.5px);
 }
 
 .sm {
@@ -83,7 +88,7 @@
 
 .danger {
   background: var(--noto-color-danger);
-  color: #fff;
+  color: var(--noto-color-danger-contrast);
 }
 
 .danger:hover:not(:disabled) {

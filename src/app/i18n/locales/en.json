@@ -26,8 +26,8 @@
     "switch": "Switch language"
   },
   "onboarding": {
-    "title": "Welcome to Noto",
-    "subtitle": "Set up your workspace to get started",
+    "title": "Set up your workspace",
+    "subtitle": "Local-first notes that stay in your browser until you export",
     "workspaceName": "Workspace name",
     "workspaceNamePlaceholder": "My Workspace",
     "language": "Language",
@@ -76,6 +76,9 @@
     "quote": "Quote",
     "link": "Link",
     "linkPrompt": "Enter URL",
+    "linkTitle": "Add link",
+    "linkSave": "Apply",
+    "linkRemove": "Remove link",
     "status": {
       "saving": "Saving…",
       "saved": "Saved",

@@ -158,32 +158,34 @@ function onMenuKeydown(event: KeyboardEvent): void {
       <slot name="trigger" :open="isOpen" :toggle="toggle" :disabled="disabled" />
     </div>
 
-    <ul
-      v-if="isOpen"
-      ref="menuRef"
-      :class="[styles.menu, align === 'end' ? styles.menuEnd : null]"
-      role="menu"
-      tabindex="-1"
-      @keydown="onMenuKeydown"
-    >
-      <li v-for="(item, index) in items" :key="item.id" role="none">
-        <button
-          type="button"
-          role="menuitem"
-          :class="[
-            styles.item,
-            index === activeIndex ? styles.itemActive : null,
-            item.danger ? styles.itemDanger : null,
-          ]"
-          :disabled="item.disabled"
-          :tabindex="index === activeIndex ? 0 : -1"
-          @click="selectItem(item, index)"
-          @mouseenter="activeIndex = index"
-        >
-          {{ item.label }}
-        </button>
-      </li>
-      <slot name="items" />
-    </ul>
+    <Transition name="noto-dropdown">
+      <ul
+        v-if="isOpen"
+        ref="menuRef"
+        :class="[styles.menu, align === 'end' ? styles.menuEnd : null]"
+        role="menu"
+        tabindex="-1"
+        @keydown="onMenuKeydown"
+      >
+        <li v-for="(item, index) in items" :key="item.id" role="none">
+          <button
+            type="button"
+            role="menuitem"
+            :class="[
+              styles.item,
+              index === activeIndex ? styles.itemActive : null,
+              item.danger ? styles.itemDanger : null,
+            ]"
+            :disabled="item.disabled"
+            :tabindex="index === activeIndex ? 0 : -1"
+            @click="selectItem(item, index)"
+            @mouseenter="activeIndex = index"
+          >
+            {{ item.label }}
+          </button>
+        </li>
+        <slot name="items" />
+      </ul>
+    </Transition>
   </div>
 </template>

@@ -2,9 +2,9 @@
   display: flex;
   align-items: center;
   gap: var(--noto-space-1);
-  padding: var(--noto-space-2);
+  padding: var(--noto-space-1) 0;
   border-bottom: 1px solid var(--noto-color-border);
-  background: var(--noto-color-bg-elevated);
+  background: var(--noto-color-paper);
   flex-wrap: wrap;
 }
 

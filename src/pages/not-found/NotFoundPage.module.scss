@@ -9,19 +9,49 @@
   text-align: center;
 }
 
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--noto-space-2);
+  margin-bottom: var(--noto-space-2);
+  color: var(--noto-color-ink-muted);
+  font-family: var(--noto-font-serif);
+  font-size: var(--noto-font-size-lg);
+  font-weight: var(--noto-font-weight-semibold);
+  letter-spacing: var(--noto-letter-spacing-tight);
+}
+
+.brandMark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: var(--noto-radius-md);
+  background: var(--noto-color-accent);
+  color: var(--noto-color-accent-contrast);
+  font-size: var(--noto-font-size-sm);
+  font-weight: var(--noto-font-weight-bold);
+}
+
 .code {
-  font-size: 4rem;
+  font-family: var(--noto-font-serif);
+  font-size: 5rem;
   font-weight: var(--noto-font-weight-bold);
   color: var(--noto-color-ink-subtle);
   line-height: 1;
+  letter-spacing: var(--noto-letter-spacing-tight);
 }
 
 .title {
+  font-family: var(--noto-font-serif);
   font-size: var(--noto-font-size-2xl);
   font-weight: var(--noto-font-weight-bold);
+  letter-spacing: var(--noto-letter-spacing-tight);
 }
 
 .description {
   color: var(--noto-color-ink-muted);
   max-width: 24rem;
+  line-height: var(--noto-line-height-relaxed);
 }

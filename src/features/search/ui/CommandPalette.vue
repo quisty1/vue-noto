@@ -91,72 +91,79 @@ onBeforeUnmount(() => {
 
 <template>
   <Teleport to="body">
-    <div v-if="open" :class="styles.overlay" @mousedown="onOverlayClick">
-      <div :class="styles.palette" role="dialog" aria-modal="true" :aria-label="t('search.title')">
-        <div :class="styles.inputRow">
-          <Search :size="18" :class="styles.searchIcon" aria-hidden="true" />
-          <input
-            ref="inputRef"
-            v-model="query"
-            type="search"
-            :class="styles.input"
-            :placeholder="t('search.placeholder')"
-            autocomplete="off"
-            aria-label="Search pages"
-            data-testid="command-palette-input"
-            @keydown="onKeydown"
+    <Transition name="noto-overlay">
+      <div v-if="open" :class="styles.overlay" @mousedown="onOverlayClick">
+        <div
+          :class="[styles.palette, 'noto-overlay-panel']"
+          role="dialog"
+          aria-modal="true"
+          :aria-label="t('search.title')"
+        >
+          <div :class="styles.inputRow">
+            <Search :size="18" :class="styles.searchIcon" aria-hidden="true" />
+            <input
+              ref="inputRef"
+              v-model="query"
+              type="search"
+              :class="styles.input"
+              :placeholder="t('search.placeholder')"
+              autocomplete="off"
+              aria-label="Search pages"
+              data-testid="command-palette-input"
+              @keydown="onKeydown"
+            />
+            <IconButton :aria-label="t('common.close')" size="sm" @click="close">
+              <X :size="16" />
+            </IconButton>
+          </div>
+
+          <div v-if="isSearching" :class="styles.hint">
+            {{ t('search.searching') }}
+          </div>
+
+          <ul v-else-if="results.length > 0" :class="styles.results" role="listbox">
+            <li
+              v-for="(page, index) in results"
+              :key="page.id"
+              role="option"
+              :aria-selected="index === activeIndex"
+              :class="[styles.result, index === activeIndex ? styles.resultActive : null]"
+              @click="selectPage(page.id)"
+              @mouseenter="activeIndex = index"
+            >
+              <span v-if="page.icon" :class="styles.resultIcon">{{ page.icon }}</span>
+              <div :class="styles.resultBody">
+                <span :class="styles.resultTitle">
+                  <template
+                    v-for="(seg, si) in getHighlightSegments(page.title, query)"
+                    :key="`t-${page.id}-${si}`"
+                  >
+                    <mark v-if="seg.match">{{ seg.text }}</mark>
+                    <template v-else>{{ seg.text }}</template>
+                  </template>
+                </span>
+                <span v-if="page.plainText" :class="styles.resultSnippet">
+                  <template
+                    v-for="(seg, si) in getHighlightSegments(page.plainText.slice(0, 120), query)"
+                    :key="`s-${page.id}-${si}`"
+                  >
+                    <mark v-if="seg.match">{{ seg.text }}</mark>
+                    <template v-else>{{ seg.text }}</template>
+                  </template>
+                </span>
+              </div>
+            </li>
+          </ul>
+
+          <EmptyState
+            v-else-if="showEmpty"
+            :title="t('search.noResults')"
+            :description="t('search.noResultsHint')"
           />
-          <IconButton :aria-label="t('common.close')" size="sm" @click="close">
-            <X :size="16" />
-          </IconButton>
+
+          <p v-else :class="styles.hint">{{ t('search.hint') }}</p>
         </div>
-
-        <div v-if="isSearching" :class="styles.hint">
-          {{ t('search.searching') }}
-        </div>
-
-        <ul v-else-if="results.length > 0" :class="styles.results" role="listbox">
-          <li
-            v-for="(page, index) in results"
-            :key="page.id"
-            role="option"
-            :aria-selected="index === activeIndex"
-            :class="[styles.result, index === activeIndex ? styles.resultActive : null]"
-            @click="selectPage(page.id)"
-            @mouseenter="activeIndex = index"
-          >
-            <span v-if="page.icon" :class="styles.resultIcon">{{ page.icon }}</span>
-            <div :class="styles.resultBody">
-              <span :class="styles.resultTitle">
-                <template
-                  v-for="(seg, si) in getHighlightSegments(page.title, query)"
-                  :key="`t-${page.id}-${si}`"
-                >
-                  <mark v-if="seg.match">{{ seg.text }}</mark>
-                  <template v-else>{{ seg.text }}</template>
-                </template>
-              </span>
-              <span v-if="page.plainText" :class="styles.resultSnippet">
-                <template
-                  v-for="(seg, si) in getHighlightSegments(page.plainText.slice(0, 120), query)"
-                  :key="`s-${page.id}-${si}`"
-                >
-                  <mark v-if="seg.match">{{ seg.text }}</mark>
-                  <template v-else>{{ seg.text }}</template>
-                </template>
-              </span>
-            </div>
-          </li>
-        </ul>
-
-        <EmptyState
-          v-else-if="showEmpty"
-          :title="t('search.noResults')"
-          :description="t('search.noResultsHint')"
-        />
-
-        <p v-else :class="styles.hint">{{ t('search.hint') }}</p>
       </div>
-    </div>
+    </Transition>
   </Teleport>
 </template>

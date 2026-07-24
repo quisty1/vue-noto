@@ -1,33 +1,38 @@
 .page {
   max-width: 36rem;
   margin: 0 auto;
-  padding: var(--noto-space-8) var(--noto-space-4);
+  padding: var(--noto-space-10) var(--noto-space-4) var(--noto-space-16);
+  min-height: 100dvh;
 }
 
 .header {
   display: flex;
   align-items: center;
   gap: var(--noto-space-4);
-  margin-bottom: var(--noto-space-8);
+  margin-bottom: var(--noto-space-10);
 }
 
 .title {
-  font-size: var(--noto-font-size-2xl);
+  font-family: var(--noto-font-serif);
+  font-size: var(--noto-font-size-3xl);
   font-weight: var(--noto-font-weight-bold);
+  letter-spacing: var(--noto-letter-spacing-tight);
+  line-height: var(--noto-line-height-tight);
 }
 
 .section {
   margin-bottom: var(--noto-space-8);
-  padding: var(--noto-space-5);
-  background: var(--noto-color-bg-elevated);
-  border: 1px solid var(--noto-color-border);
-  border-radius: var(--noto-radius-lg);
+  padding-block: var(--noto-space-2);
+  border-top: 1px solid var(--noto-color-border);
 }
 
 .sectionTitle {
-  font-size: var(--noto-font-size-lg);
+  font-size: var(--noto-font-size-sm);
   font-weight: var(--noto-font-weight-semibold);
-  margin-bottom: var(--noto-space-4);
+  text-transform: uppercase;
+  letter-spacing: var(--noto-letter-spacing-wide);
+  color: var(--noto-color-ink-subtle);
+  margin: var(--noto-space-4) 0;
 }
 
 .row {
@@ -35,13 +40,14 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--noto-space-4);
-  padding-block: var(--noto-space-2);
+  padding-block: var(--noto-space-3);
 }
 
 .hint {
   font-size: var(--noto-font-size-sm);
   color: var(--noto-color-ink-muted);
   margin-bottom: var(--noto-space-4);
+  line-height: var(--noto-line-height-relaxed);
 }
 
 .actions {

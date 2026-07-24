@@ -41,11 +41,12 @@
   font-size: var(--noto-font-size-sm);
   text-align: start;
   cursor: pointer;
+  transition: background-color var(--noto-duration-fast) var(--noto-easing-standard);
 }
 
 .item:hover:not(:disabled),
 .itemActive:not(:disabled) {
-  background: var(--noto-color-bg-muted);
+  background: var(--noto-color-accent-muted);
 }
 
 .item:focus-visible {

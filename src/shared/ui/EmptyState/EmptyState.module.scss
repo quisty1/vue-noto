@@ -3,8 +3,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: var(--noto-space-3);
-  padding: var(--noto-space-10) var(--noto-space-6);
+  gap: var(--noto-space-4);
+  padding: var(--noto-space-12) var(--noto-space-6);
   text-align: center;
   color: var(--noto-color-ink-muted);
 }
@@ -13,27 +13,29 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 3rem;
-  height: 3rem;
+  width: 3.5rem;
+  height: 3.5rem;
   border-radius: var(--noto-radius-full);
-  background: var(--noto-color-bg-muted);
-  color: var(--noto-color-ink-subtle);
+  background: var(--noto-color-accent-muted);
+  color: var(--noto-color-accent);
 }
 
 .title {
   margin: 0;
   color: var(--noto-color-ink);
   font-family: var(--noto-font-serif);
-  font-size: var(--noto-font-size-xl);
+  font-size: var(--noto-font-size-2xl);
   font-weight: var(--noto-font-weight-semibold);
   letter-spacing: var(--noto-letter-spacing-tight);
+  line-height: var(--noto-line-height-tight);
 }
 
 .description {
   margin: 0;
-  max-width: 28rem;
-  font-size: var(--noto-font-size-sm);
+  max-width: 26rem;
+  font-size: var(--noto-font-size-md);
   line-height: var(--noto-line-height-relaxed);
+  color: var(--noto-color-ink-muted);
 }
 
 .action {

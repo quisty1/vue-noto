@@ -8,10 +8,10 @@ import Underline from '@tiptap/extension-underline'
 import StarterKit from '@tiptap/starter-kit'
 import { Editor, EditorContent, BubbleMenu } from '@tiptap/vue-3'
 import { Bold, Italic, Link as LinkIcon } from '@lucide/vue'
-import { onBeforeUnmount, onMounted, shallowRef, computed, watch } from 'vue'
+import { onBeforeUnmount, onMounted, shallowRef, computed, watch, ref, nextTick } from 'vue'
 import { useI18n } from 'vue-i18n'
 
-import { IconButton } from '@shared/ui'
+import { Button, Dialog, IconButton, Input } from '@shared/ui'
 
 import { createSlashCommandsExtension, defaultSlashCommands } from '../lib/slash-commands'
 import styles from './NotoEditor.module.scss'
@@ -28,6 +28,9 @@ const emit = defineEmits<{
 const { t } = useI18n()
 
 const editor = shallowRef<Editor | undefined>()
+const linkDialogOpen = ref(false)
+const linkUrl = ref('https://')
+const hasExistingLink = ref(false)
 
 onMounted(() => {
   editor.value = new Editor({
@@ -66,17 +69,39 @@ watch(
   },
 )
 
-function setLink(): void {
+function openLinkDialog(): void {
   const ed = editor.value
   if (!ed) return
   const previous = ed.getAttributes('link').href as string | undefined
-  const url = window.prompt(t('editor.linkPrompt'), previous ?? 'https://')
-  if (url === null) return
+  hasExistingLink.value = Boolean(previous)
+  linkUrl.value = previous ?? 'https://'
+  linkDialogOpen.value = true
+}
+
+function closeLinkDialog(): void {
+  linkDialogOpen.value = false
+  void nextTick(() => {
+    editor.value?.chain().focus().run()
+  })
+}
+
+function applyLink(): void {
+  const ed = editor.value
+  if (!ed) return
+  const url = linkUrl.value.trim()
   if (url === '') {
     ed.chain().focus().extendMarkRange('link').unsetLink().run()
-    return
+  } else {
+    ed.chain().focus().extendMarkRange('link').setLink({ href: url }).run()
   }
-  ed.chain().focus().extendMarkRange('link').setLink({ href: url }).run()
+  linkDialogOpen.value = false
+}
+
+function removeLink(): void {
+  const ed = editor.value
+  if (!ed) return
+  ed.chain().focus().extendMarkRange('link').unsetLink().run()
+  linkDialogOpen.value = false
 }
 
 onBeforeUnmount(() => {
@@ -111,12 +136,35 @@ defineExpose({
       >
         <Italic :size="14" />
       </IconButton>
-      <IconButton :aria-label="t('editor.link')" size="sm" @click="setLink">
+      <IconButton :aria-label="t('editor.link')" size="sm" @click="openLinkDialog">
         <LinkIcon :size="14" />
       </IconButton>
     </BubbleMenu>
 
     <EditorContent v-if="editor" :editor="editor" :class="styles.content" />
+
+    <Dialog v-model:open="linkDialogOpen" :title="t('editor.linkTitle')" @close="closeLinkDialog">
+      <form :class="styles.linkForm" @submit.prevent="applyLink">
+        <Input
+          v-model="linkUrl"
+          :label="t('editor.linkPrompt')"
+          type="url"
+          placeholder="https://"
+          data-testid="editor-link-input"
+        />
+      </form>
+      <template #footer>
+        <Button v-if="hasExistingLink" variant="ghost" type="button" @click="removeLink">
+          {{ t('editor.linkRemove') }}
+        </Button>
+        <Button variant="secondary" type="button" @click="closeLinkDialog">
+          {{ t('common.cancel') }}
+        </Button>
+        <Button type="button" data-testid="editor-link-apply" @click="applyLink">
+          {{ t('editor.linkSave') }}
+        </Button>
+      </template>
+    </Dialog>
   </div>
 </template>
 
@@ -147,7 +195,7 @@ defineExpose({
 
   &:hover,
   &.noto-slash-item-active {
-    background: var(--noto-color-bg-muted);
+    background: var(--noto-color-accent-muted);
   }
 }
 

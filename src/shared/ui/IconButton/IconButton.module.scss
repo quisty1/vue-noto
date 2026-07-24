@@ -10,12 +10,18 @@
   transition:
     background-color var(--noto-duration-fast) var(--noto-easing-standard),
     color var(--noto-duration-fast) var(--noto-easing-standard),
-    box-shadow var(--noto-duration-fast) var(--noto-easing-standard);
+    box-shadow var(--noto-duration-fast) var(--noto-easing-standard),
+    transform var(--noto-duration-fast) var(--noto-easing-standard);
 }
 
 .root:hover:not(:disabled) {
   background: var(--noto-color-bg-muted);
   color: var(--noto-color-ink);
+}
+
+.root:active:not(:disabled) {
+  transform: translateY(0.5px);
+  background: var(--noto-color-bg-subtle);
 }
 
 .root:disabled {

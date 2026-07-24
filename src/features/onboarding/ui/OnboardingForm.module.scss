@@ -2,19 +2,62 @@
   display: flex;
   flex-direction: column;
   gap: var(--noto-space-5);
-  max-width: 24rem;
   width: 100%;
+  padding: var(--noto-space-8) var(--noto-space-6);
+  border: 1px solid var(--noto-color-border);
+  border-radius: var(--noto-radius-xl);
+  background: color-mix(in srgb, var(--noto-color-bg-elevated) 92%, transparent);
+  box-shadow: var(--noto-shadow-lg);
+  backdrop-filter: blur(10px);
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--noto-space-3);
+  margin-bottom: var(--noto-space-1);
+}
+
+.brandMark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--noto-radius-lg);
+  background: var(--noto-color-accent);
+  color: var(--noto-color-accent-contrast);
+  font-family: var(--noto-font-serif);
+  font-size: var(--noto-font-size-lg);
+  font-weight: var(--noto-font-weight-bold);
+  line-height: 1;
+}
+
+.brandName {
+  margin: 0;
+  font-family: var(--noto-font-serif);
+  font-size: var(--noto-font-size-4xl);
+  font-weight: var(--noto-font-weight-bold);
+  letter-spacing: var(--noto-letter-spacing-tight);
+  line-height: var(--noto-line-height-tight);
+  color: var(--noto-color-ink);
 }
 
 .title {
-  font-size: var(--noto-font-size-2xl);
-  font-weight: var(--noto-font-weight-bold);
+  margin: 0;
+  font-size: var(--noto-font-size-lg);
+  font-weight: var(--noto-font-weight-semibold);
   letter-spacing: var(--noto-letter-spacing-tight);
+  color: var(--noto-color-ink);
 }
 
 .subtitle {
+  margin: 0;
   color: var(--noto-color-ink-muted);
-  margin-top: calc(-1 * var(--noto-space-3));
+  font-size: var(--noto-font-size-sm);
+  line-height: var(--noto-line-height-relaxed);
+  margin-top: calc(-1 * var(--noto-space-2));
 }
 
 .checkbox {

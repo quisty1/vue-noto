@@ -60,6 +60,10 @@ const onSubmit = handleSubmit(async (values) => {
 
 <template>
   <form :class="styles.form" @submit.prevent="onSubmit">
+    <div :class="styles.brand">
+      <span :class="styles.brandMark" aria-hidden="true">N</span>
+      <p :class="styles.brandName">{{ t('app.name') }}</p>
+    </div>
     <h1 :class="styles.title">{{ t('onboarding.title') }}</h1>
     <p :class="styles.subtitle">{{ t('onboarding.subtitle') }}</p>
 

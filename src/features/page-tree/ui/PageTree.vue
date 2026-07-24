@@ -10,6 +10,7 @@ const props = defineProps<{
   nodes: PageTreeNode[]
   workspaceId: string
   activePageId?: string | undefined
+  collapsed?: boolean
 }>()
 
 const emit = defineEmits<{
@@ -56,6 +57,7 @@ function onChildMove(pageId: string, newParentId: string | null, index: number):
       :workspace-id="workspaceId"
       :active-page-id="activePageId"
       :depth="0"
+      :collapsed="collapsed"
       @select="emit('select', $event)"
       @reorder="onChildReorder"
       @move="onChildMove"

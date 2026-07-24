@@ -26,7 +26,8 @@
   color: var(--noto-color-ink);
   transition:
     border-color var(--noto-duration-fast) var(--noto-easing-standard),
-    box-shadow var(--noto-duration-fast) var(--noto-easing-standard);
+    box-shadow var(--noto-duration-fast) var(--noto-easing-standard),
+    background-color var(--noto-duration-fast) var(--noto-easing-standard);
 }
 
 .control::placeholder {

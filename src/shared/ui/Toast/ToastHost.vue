@@ -10,27 +10,29 @@ const { toasts, dismiss } = useToast()
 
 <template>
   <div :class="styles.host" aria-live="polite" aria-relevant="additions text">
-    <div
-      v-for="item in toasts"
-      :id="item.id"
-      :key="item.id"
-      :class="[styles.toast, styles[item.tone]]"
-      role="status"
-    >
-      <div>
-        <p :class="styles.title">{{ item.title }}</p>
-        <p v-if="item.description" :class="styles.description">
-          {{ item.description }}
-        </p>
-      </div>
-      <IconButton
-        :class="styles.dismiss"
-        aria-label="Dismiss notification"
-        size="sm"
-        @click="dismiss(item.id)"
+    <TransitionGroup name="noto-toast" tag="div" :class="styles.list">
+      <div
+        v-for="item in toasts"
+        :id="item.id"
+        :key="item.id"
+        :class="[styles.toast, styles[item.tone]]"
+        role="status"
       >
-        <X :size="14" />
-      </IconButton>
-    </div>
+        <div>
+          <p :class="styles.title">{{ item.title }}</p>
+          <p v-if="item.description" :class="styles.description">
+            {{ item.description }}
+          </p>
+        </div>
+        <IconButton
+          :class="styles.dismiss"
+          aria-label="Dismiss notification"
+          size="sm"
+          @click="dismiss(item.id)"
+        >
+          <X :size="14" />
+        </IconButton>
+      </div>
+    </TransitionGroup>
   </div>
 </template>

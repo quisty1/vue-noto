@@ -8,13 +8,15 @@
 .content {
   flex: 1;
   overflow-y: auto;
-  padding: var(--noto-space-4) var(--noto-space-6);
+  padding: var(--noto-space-4) var(--noto-space-6) var(--noto-space-16);
 
   :global(.ProseMirror) {
     outline: none;
     min-height: 12rem;
+    max-width: var(--noto-measure-content);
+    margin-inline: auto;
     font-family: var(--noto-font-serif);
-    font-size: var(--noto-font-size-md);
+    font-size: var(--noto-font-size-lg);
     line-height: var(--noto-line-height-relaxed);
     color: var(--noto-color-ink);
 
@@ -111,6 +113,12 @@
   padding: var(--noto-space-1);
   background: var(--noto-color-bg-elevated);
   border: 1px solid var(--noto-color-border);
-  border-radius: var(--noto-radius-md);
-  box-shadow: var(--noto-shadow-sm);
+  border-radius: var(--noto-radius-lg);
+  box-shadow: var(--noto-shadow-md);
+}
+
+.linkForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--noto-space-3);
 }

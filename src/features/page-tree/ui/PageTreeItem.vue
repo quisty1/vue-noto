@@ -15,6 +15,7 @@ const props = defineProps<{
   workspaceId: string
   activePageId?: string | undefined
   depth: number
+  collapsed?: boolean
 }>()
 
 const emit = defineEmits<{
@@ -82,40 +83,54 @@ async function onToggleCollapse(event: Event): Promise<void> {
     :aria-expanded="hasChildren ? !node.isCollapsed : undefined"
   >
     <div
-      :class="[styles.row, isActive ? styles.rowActive : null]"
-      :style="{ paddingInlineStart: `calc(var(--noto-space-2) + ${depth} * var(--noto-space-4))` }"
+      :class="[
+        styles.row,
+        isActive ? styles.rowActive : null,
+        collapsed ? styles.rowCollapsed : null,
+      ]"
+      :style="
+        collapsed
+          ? undefined
+          : { paddingInlineStart: `calc(var(--noto-space-2) + ${depth} * var(--noto-space-4))` }
+      "
       data-testid="sidebar-page-item"
       :data-page-id="node.id"
+      :aria-label="node.title"
       @click="onSelect"
       @contextmenu.prevent
     >
-      <button
-        v-if="hasChildren"
-        type="button"
-        :class="styles.collapseBtn"
-        :aria-label="node.isCollapsed ? t('page.expand') : t('page.collapse')"
-        @click="onToggleCollapse"
-      >
-        <ChevronRight v-if="node.isCollapsed" :size="14" />
-        <ChevronDown v-else :size="14" />
-      </button>
-      <span v-else :class="styles.collapseSpacer" aria-hidden="true" />
+      <template v-if="!collapsed">
+        <button
+          v-if="hasChildren"
+          type="button"
+          :class="styles.collapseBtn"
+          :aria-label="node.isCollapsed ? t('page.expand') : t('page.collapse')"
+          @click="onToggleCollapse"
+        >
+          <ChevronRight v-if="node.isCollapsed" :size="14" />
+          <ChevronDown v-else :size="14" />
+        </button>
+        <span v-else :class="styles.collapseSpacer" aria-hidden="true" />
+      </template>
 
       <span v-if="node.icon" :class="styles.icon" aria-hidden="true">
         {{ node.icon }}
       </span>
+      <span v-else-if="collapsed" :class="styles.iconFallback" aria-hidden="true">
+        {{ node.title.slice(0, 1) }}
+      </span>
 
-      <span :class="styles.title">{{ node.title }}</span>
+      <span v-if="!collapsed" :class="styles.title">{{ node.title }}</span>
 
       <Star
-        v-if="node.isFavorite"
+        v-if="!collapsed && node.isFavorite"
         :class="styles.favorite"
         :size="12"
         fill="currentColor"
         aria-hidden="true"
       />
 
-      <Dropdown :items="menuItems" align="end" @select="onMenuSelect">
+      <Dropdown v-if="!collapsed" :items="menuItems" align="end" @select="onMenuSelect">
         <template #trigger="{ toggle }">
           <IconButton
             :class="styles.menuBtn"
@@ -130,7 +145,7 @@ async function onToggleCollapse(event: Event): Promise<void> {
     </div>
 
     <VueDraggable
-      v-if="hasChildren && !node.isCollapsed"
+      v-if="hasChildren && !node.isCollapsed && !collapsed"
       v-model="childNodes"
       :class="styles.children"
       tag="ul"
@@ -147,6 +162,7 @@ async function onToggleCollapse(event: Event): Promise<void> {
         :workspace-id="workspaceId"
         :active-page-id="activePageId"
         :depth="depth + 1"
+        :collapsed="collapsed"
         @select="emit('select', $event)"
         @reorder="(parentId, ids) => emit('reorder', parentId, ids)"
         @move="(id, parentId, index) => emit('move', id, parentId, index)"

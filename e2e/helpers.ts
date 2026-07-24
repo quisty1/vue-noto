@@ -24,7 +24,7 @@ export async function resetApp(page: Page): Promise<void> {
   await clearAppStorage(page)
   await page.goto('/')
   await expect(
-    page.getByRole('heading', { name: /Welcome to Noto|Добро пожаловать в Noto/ }),
+    page.getByRole('heading', { name: /Set up your workspace|Настройте пространство/ }),
   ).toBeVisible()
 }
 
@@ -34,7 +34,7 @@ export async function completeOnboarding(
 ): Promise<void> {
   const { workspaceName = 'E2E Workspace', useDemo = true } = options
 
-  await expect(page.getByRole('heading', { name: 'Welcome to Noto' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Set up your workspace' })).toBeVisible()
   await page.getByLabel('Workspace name').fill(workspaceName)
 
   const demoCheckbox = page.getByTestId('onboarding-load-demo')

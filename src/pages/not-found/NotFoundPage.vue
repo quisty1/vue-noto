@@ -15,6 +15,10 @@ function goHome(): void {
 
 <template>
   <div :class="styles.page">
+    <div :class="styles.brand">
+      <span :class="styles.brandMark" aria-hidden="true">N</span>
+      {{ t('app.name') }}
+    </div>
     <h1 :class="styles.code">404</h1>
     <h2 :class="styles.title">{{ t('notFound.title') }}</h2>
     <p :class="styles.description">{{ t('notFound.description') }}</p>

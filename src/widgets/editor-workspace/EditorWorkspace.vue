@@ -103,26 +103,30 @@ defineExpose({ restoreContent })
       <img :src="page.cover" :alt="''" />
     </div>
 
-    <div :class="styles.meta">
-      <input
-        :class="styles.iconInput"
-        :value="icon ?? ''"
-        :placeholder="t('page.untitled').charAt(0)"
-        maxlength="2"
-        aria-label="Page icon"
-        @input="onIconInput"
-      />
-      <input
-        :class="styles.titleInput"
-        :value="title"
-        :placeholder="t('page.untitled')"
-        aria-label="Page title"
-        data-testid="editor-title"
-        @input="onTitleInput"
-      />
-    </div>
+    <div :class="styles.scroll">
+      <div :class="styles.meta">
+        <input
+          :class="styles.iconInput"
+          :value="icon ?? ''"
+          :placeholder="t('page.untitled').charAt(0)"
+          maxlength="2"
+          aria-label="Page icon"
+          @input="onIconInput"
+        />
+        <input
+          :class="styles.titleInput"
+          :value="title"
+          :placeholder="t('page.untitled')"
+          aria-label="Page title"
+          data-testid="editor-title"
+          @input="onTitleInput"
+        />
+      </div>
 
-    <EditorToolbar :editor="editorInstance" />
-    <NotoEditor ref="notoEditorRef" v-model="content" :placeholder="t('editor.placeholder')" />
+      <div :class="styles.toolbarSticky">
+        <EditorToolbar :editor="editorInstance" />
+      </div>
+      <NotoEditor ref="notoEditorRef" v-model="content" :placeholder="t('editor.placeholder')" />
+    </div>
   </article>
 </template>
