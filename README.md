@@ -1,7 +1,11 @@
 # Noto
 
-[![CI](https://github.com/PLACEHOLDER_GITHUB_OWNER/noto/actions/workflows/ci.yml/badge.svg)](https://github.com/PLACEHOLDER_GITHUB_OWNER/noto/actions/workflows/ci.yml)
-[![Deploy](https://github.com/PLACEHOLDER_GITHUB_OWNER/noto/actions/workflows/deploy.yml/badge.svg)](https://github.com/PLACEHOLDER_GITHUB_OWNER/noto/actions/workflows/deploy.yml)
+[English](#english) · [Русский](#русский)
+
+## English
+
+[![CI](https://github.com/quisty1/vue-noto/actions/workflows/ci.yml/badge.svg)](https://github.com/quisty1/vue-noto/actions/workflows/ci.yml)
+[![Deploy](https://github.com/quisty1/vue-noto/actions/workflows/deploy.yml/badge.svg)](https://github.com/quisty1/vue-noto/actions/workflows/deploy.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Vue](https://img.shields.io/badge/Vue-3.5-42b883?logo=vuedotjs&logoColor=white)](https://vuejs.org/)
@@ -9,16 +13,11 @@
 
 **Local-first notes and documents workspace** — hierarchical pages, rich editing, favorites, trash, snapshots, and portable JSON/Markdown export. Data stays in your browser (IndexedDB) until you choose to export.
 
-> **Live demo:** `https://PLACEHOLDER_GITHUB_OWNER.github.io/noto/`  
-> Replace `PLACEHOLDER_GITHUB_OWNER` with your GitHub username or org after publishing.
-
-![Noto workspace placeholder](docs/screenshots/workspace.png)
-
-_Add product screenshots under [`docs/screenshots/`](docs/screenshots/README.md). This README references them once captured — no fabricated assets or Lighthouse scores._
+Run the app locally with the instructions below. Use the [screenshot guide](docs/screenshots/README.md) to capture the workspace states.
 
 ---
 
-## Features
+### Features
 
 - **Local-first persistence** — workspaces, pages, and snapshots stored in IndexedDB via Dexie
 - **Hierarchical page tree** — nest, reorder, and drag pages in the sidebar
@@ -36,7 +35,7 @@ _Add product screenshots under [`docs/screenshots/`](docs/screenshots/README.md)
 
 ---
 
-## Architecture
+### Architecture
 
 Noto follows **Feature-Sliced Design (FSD)** with clear layers: `app` → `pages` → `widgets` → `features` → `entities` → `shared`.
 
@@ -82,7 +81,7 @@ See [ARCHITECTURE.md](./ARCHITECTURE.md) for data flow, persistence, and state d
 
 ---
 
-## Project structure
+### Project structure
 
 ```text
 src/
@@ -100,7 +99,7 @@ docs/            # documentation assets (screenshots guide)
 
 ---
 
-## Tech stack
+### Tech stack
 
 | Area         | Choice                                                |
 | ------------ | ----------------------------------------------------- |
@@ -115,25 +114,25 @@ docs/            # documentation assets (screenshots guide)
 
 ---
 
-## Requirements
+### Requirements
 
 - **Node.js** ≥ 22 (see `.nvmrc`)
 - npm (lockfile committed)
 
 ---
 
-## Getting started
+### Getting started
 
 ```bash
-git clone https://github.com/PLACEHOLDER_GITHUB_OWNER/noto.git
-cd noto
+git clone https://github.com/quisty1/vue-noto.git
+cd vue-noto
 npm ci
 npm run dev
 ```
 
 Open the URL printed by Vite (typically `http://localhost:5173`).
 
-### Useful scripts
+#### Useful scripts
 
 | Script                      | Description                                   |
 | --------------------------- | --------------------------------------------- |
@@ -152,7 +151,7 @@ Environment variables are documented in [`.env.example`](./.env.example) (`VITE_
 
 ---
 
-## Docker
+### Docker
 
 Build and run the production image locally:
 
@@ -164,7 +163,7 @@ The app is served by nginx on **http://localhost:8080** (see `Dockerfile` and `d
 
 ---
 
-## Testing
+### Testing
 
 - **Unit / component:** Vitest (`npm run test`, `npm run test:coverage`)
 - **E2E:** Playwright specs in `e2e/*.spec.ts`
@@ -178,7 +177,7 @@ npm run test:e2e
 
 ---
 
-## Accessibility
+### Accessibility
 
 - Semantic landmarks, labels, and dialogs for search and menus
 - Icon-only controls expose accessible names (`aria-label`)
@@ -188,7 +187,7 @@ npm run test:e2e
 
 ---
 
-## Performance notes
+### Performance notes
 
 - Route-level code splitting via dynamic imports in the router
 - Debounced autosave (`AUTOSAVE_MS`) to limit IndexedDB writes
@@ -199,7 +198,7 @@ _No fabricated Lighthouse scores are claimed in this README. Measure locally or 
 
 ---
 
-## CI / CD
+### CI / CD
 
 - **CI** ([`.github/workflows/ci.yml`](./.github/workflows/ci.yml)): lint, typecheck, unit tests with coverage, production build, Storybook build, Playwright E2E
 - **Deploy** ([`.github/workflows/deploy.yml`](./.github/workflows/deploy.yml)): publishes `dist` to GitHub Pages after a successful CI run on `main`/`master`
@@ -207,7 +206,7 @@ _No fabricated Lighthouse scores are claimed in this README. Measure locally or 
 
 ---
 
-## Roadmap
+### Roadmap
 
 - [ ] Cloud sync / multi-device accounts (opt-in)
 - [ ] Realtime collaboration
@@ -218,7 +217,7 @@ _No fabricated Lighthouse scores are claimed in this README. Measure locally or 
 
 ---
 
-## Known limitations
+### Known limitations
 
 - Data lives in the **browser profile**; clearing site data removes workspaces unless you export first
 - No multi-user auth or server sync in v1
@@ -228,12 +227,31 @@ _No fabricated Lighthouse scores are claimed in this README. Measure locally or 
 
 ---
 
-## Contributing
+### Contributing
 
 See [CONTRIBUTING.md](./CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md). Architecture details: [ARCHITECTURE.md](./ARCHITECTURE.md).
 
 ---
 
-## License
+### License
 
 [MIT](./LICENSE) © 2026 Noto Contributors
+
+## Русский
+
+Локальное рабочее пространство для заметок и документов. В нём есть дерево страниц, редактор TipTap, поиск, избранное, корзина и снимки версий. Данные хранятся в IndexedDB текущего браузера. Экспортируйте резервную копию перед очисткой данных сайта или переносом на другое устройство.
+
+### Локальный запуск
+
+Требуются Node.js 22+ и npm:
+
+```sh
+npm ci
+npm run dev
+```
+
+Откройте адрес от Vite и создайте рабочее пространство или загрузите учебные заметки. В меню доступны экспорт копии в JSON и страницы в Markdown. Поиск открывается по **Ctrl/⌘+K**; темы и язык можно изменить в настройках.
+
+### Устройство и проверки
+
+Vue 3, TypeScript и Vite; Dexie для IndexedDB, Pinia для состояния UI, TanStack Query для запросов к локальным репозиториям. Слои и потоки данных описаны в [ARCHITECTURE.md](ARCHITECTURE.md). Используйте `npm run typecheck`, `npm test`, `npm run build` и `npm run test:e2e`; для Playwright нужно предварительно установить браузеры. Лицензия — [MIT](LICENSE).
